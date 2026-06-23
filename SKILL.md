@@ -1,5 +1,5 @@
 ---
-name: IRY (我记得你)
+name: iry
 description: AI 记忆转移 & 任务交接神器。将老AI的上下文（用户画像、项目状态、经验、雷区）无损迁移至新AI，通过人机协同与质检循环，确保新AI无需追问即可无缝衔接开工。
 description_en: AI Memory Transfer & Task Handover Kit. Migrates old AI context (user profile, project status, experience, pitfalls) to new AI losslessly. Human-AI collaboration with QC loop ensures seamless handover without follow-up questions.
 trigger_phrases:
