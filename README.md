@@ -1,6 +1,7 @@
 # IRY (I Remember You)｜AI 记忆转移 & 任务交接 Skill
 
-> New AI remembers everything about you and your old AI.
+> **New AI. It still remembers you.**
+> **中文：换新 AI，它依然记得你。**
 
 ---
 
@@ -273,6 +274,13 @@ IRY 采用标准化 **5 步交接流程 + 7 道因果校验问答 + 自动化 QC
 
 ---
 
+📌 Slogan
+
+- 中文：**换新 AI，它依然记得你**
+- English: **New AI. It still remembers you.**
+
+---
+
 ## 反向训练
 
 使用者反馈记录在 `feedback.md`，下次触发时自动检查，持续改进。
@@ -302,8 +310,8 @@ IRY 采用标准化 **5 步交接流程 + 7 道因果校验问答 + 自动化 QC
 
 # IRY (I Remember You) - AI Memory Transfer & Task Handover Skill
 
-> **New AI remembers everything about you and your old AI.**
-> **中文：新 AI 记得你和老 AI 所有的事情。**
+> **New AI. It still remembers you.**
+> **中文：换新 AI，它依然记得你。**
 
 ---
 
@@ -515,3 +523,10 @@ User asks 1 project-related question and scores:
 ## Feedback Loop
 
 Usage feedback is recorded in `feedback.md`. The tool auto-checks it on next trigger for continuous improvement.
+
+---
+
+## 📌 Slogan
+
+- **English**: New AI. It still remembers you.
+- **中文**: 换新 AI，它依然记得你。
