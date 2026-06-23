@@ -1,12 +1,31 @@
-# AI记忆转移 AI→AI 任务无缝交接神器
+# IRY (I Remember You) - AI记忆转移任务交接神器
 
-> **无脑交接，无缝衔接，免去后顾之忧**
+> **无脑交接，无缝衔接，新AI记得你和老AI所有的事情**
+
+---
+
+## 💡 创意来源
+
+**IRY = I Remember You**
+
+当你换AI助手时，最痛苦的是什么？—— **重复解释**。
+
+- 你要把项目背景重新讲一遍
+- 你要告诉新AI你的沟通风格
+- 你要解释为什么某些文件不能碰
+- 你要重复之前踩过的坑
+
+**IRY 的浪漫之处**：新AI接过交接包后，对你说"我记得你"——它知道你的习惯、项目的状态、那些不能碰的雷区。就像老AI从未离开。
+
+**Slogan**：
+- 中文：**新AI记得你和老AI所有的事情**
+- 英文：**New AI remembers everything about you and your old AI**
 
 ---
 
 ## 简介
 
-AI记忆转移是一个 AI→AI 任务交接工具，通过**5 步流程 + 7 道因果问答 + QC 质检 + 人工抽检**，将移交 AI 的上下文（用户画像、项目状态、经验、雷区）无损迁移至接收 AI，确保接收 AI 无需追问即可开工。
+IRY 是一个 AI→AI 任务交接工具，通过**5 步流程 + 7 道因果问答 + QC 质检 + 人工抽检**，将移交AI 的上下文（用户画像、项目状态、经验、雷区）无损迁移至接收AI，确保接收AI 无需追问即可开工。
 
 **核心价值**：解决 AI 任务交接时的信息不对称问题——通过人机协同 + 质检循环，让新 AI 无缝接手。
 
@@ -16,23 +35,26 @@ AI记忆转移是一个 AI→AI 任务交接工具，通过**5 步流程 + 7 道
 
 ## 触发词
 
-### 中文（8 个）
+### 中文（9 个）
 
-| 触发词 | 适用场景 |
-|--------|---------|
-| `AI记忆转移` | 懂产品的人直接触发 |
-| `AI任务交接神器` | 理解产品定位的人 |
-| `AI任务交接` | 不懂 IP 但懂场景 |
-| `项目无缝交接` | 覆盖通用场景 |
-| `上下文转移` | 遇到上下文丢失的人 |
-| `接手任务` | 自然语言触发 |
-| `任务中断了怎么办` | 自然语言触发 |
-| `换AI怎么接手` | 自然语言触发 |
+| 触发词 | 类型 | 适用场景 |
+|--------|------|---------|
+| `IRY` | 强关联（IP 词） | 懂产品的人直接触发 |
+| `I Remember You` | 强关联（英文名） | 理解产品定位的人 |
+| `我记得你` | 强关联（中文意译） | 中文用户 |
+| `AI任务交接神器` | 强关联（描述词） | 理解产品定位的人 |
+| `AI任务交接` | 弱关联（通用） | 不懂 IP 但懂场景 |
+| `项目无缝交接` | 弱关联（通用） | 覆盖通用场景 |
+| `上下文转移` | 问题导向 | 遇到上下文丢失的人 |
+| `接手任务` | 问题导向 | 自然语言触发 |
+| `任务中断了怎么办` | 问题导向 | 自然语言触发 |
 
-### English（8 trigger words）
+### English（9 trigger words）
 
-| Trigger | When to use |
-|---------|------------|
+| Trigger | Meaning |
+|---------|---------|
+| `IRY` | Short for "I Remember You" |
+| `I Remember You` | Full name, emotional connection |
 | `pass the baton` | Idiom-based direct trigger |
 | `seamless AI handoff` | Describes the product |
 | `transfer project context` | Context loss scenario |
@@ -40,7 +62,6 @@ AI记忆转移是一个 AI→AI 任务交接工具，通过**5 步流程 + 7 道
 | `task handover` | General scenario |
 | `AI context migration` | Technical scenario |
 | `project transition` | Project management scenario |
-| `hand over to new AI` | Natural language trigger |
 
 ---
 
@@ -62,11 +83,11 @@ AI记忆转移是一个 AI→AI 任务交接工具，通过**5 步流程 + 7 道
 
 ### Step 2：AI 生成（对话中展示，不落盘）
 
-移交 AI 在对话中生成 8 个核心文件：
+移交AI 在对话中生成 8 个核心文件：
 
 | # | 文件 | 内容 |
 |---|------|------|
-| 00 | 启动指令.md | 接收 AI 阅读指引 + [VERIFICATION] 强制输出 |
+| 00 | 启动指令.md | 接收AI 阅读指引 + [VERIFICATION] 强制输出 |
 | 01 | User-DNA.md | 用户风格、纠错习惯、3 条雷区 |
 | 02 | Project-Spec.md | 项目名、路径、最终目的、技术栈 |
 | 03 | State-Plan.md | 当前进度（文件:行号）、下一步任务 |
@@ -81,11 +102,11 @@ AI记忆转移是一个 AI→AI 任务交接工具，通过**5 步流程 + 7 道
 
 用户确认清单是否完整，最多 3 次循环。
 
-### Step 4：最终交付（移交 AI 收尾）
+### Step 4：最终交付（移交AI 收尾）
 
-确认后一次性写入磁盘 + 生成 `09-后一步操作说明.md`，移交 AI 工作结束。
+确认后一次性写入磁盘 + 生成 `09-后一步操作说明.md`，移交AI 工作结束。
 
-### Step 5：人工抽检（人 → 接收 AI）
+### Step 5：人工抽检（人 → 接收AI）
 
 用户自拟 1 个项目相关问题，红绿灯判分：
 
@@ -95,7 +116,7 @@ AI记忆转移是一个 AI→AI 任务交接工具，通过**5 步流程 + 7 道
 | 雷区 | 准确复述禁忌 | 模糊承诺 |
 | 任务 | 下一步具体可验收 | 宏大叙事 |
 
-**打回原因三选一**：A. 信息遗漏 / B. 表述不清 / C. 接收 AI 没认真读
+**打回原因三选一**：A. 信息遗漏 / B. 表述不清 / C. 接收AI 没认真读
 
 ---
 
@@ -106,17 +127,17 @@ AI记忆转移是一个 AI→AI 任务交接工具，通过**5 步流程 + 7 道
 3. **QC Loop**：最多 3 次质检循环
 4. **人工抽检**：不限制次数，相信用户判断
 5. **权责分离**：
-   - 移交 AI：Step 1-3 完成交接包后告一段落
+   - 移交AI：Step 1-3 完成交接包后告一段落
    - 人：确认、传包、测试打分
-   - 接收 AI：读包深度学习、接收测试
+   - 接收AI：读包深度学习、接收测试
 6. **因果链全覆盖**：每个问题的答案都决定后续的搜索范围、内容侧重和权限策略
 
 ---
 
 ## 安装与使用
 
-1. 将 `AI记忆转移 AI→AI任务无缝交接神器.md` 放入 AI 平台的 Skill 目录
-2. 在对话中说出触发词（如「AI记忆转移」「AI任务交接」）
+1. 将 `IRY (我记得你) AI记忆转移任务交接神器.md` 放入 AI 平台的 Skill 目录
+2. 在对话中说出触发词（如 `IRY`、`I Remember You`、`AI任务交接`）
 3. AI 自动识别后按 5 步流程执行
 4. 用户全程只需做选择题
 
@@ -134,8 +155,8 @@ AI记忆转移是一个 AI→AI 任务交接工具，通过**5 步流程 + 7 道
 ## 交付包结构
 
 ```
-{项目名}-AI记忆转移交接包-{执行时间}/
-├── 00-启动指令.md        （接收 AI 启动指令）
+{项目名}-IRY交接包-{执行时间}/
+├── 00-启动指令.md        （接收AI 启动指令）
 ├── 01-User-DNA.md        （用户 DNA）
 ├── 02-Project-Spec.md    （项目规格）
 ├── 03-State-Plan.md      （状态与计划）
@@ -144,7 +165,7 @@ AI记忆转移是一个 AI→AI 任务交接工具，通过**5 步流程 + 7 道
 ├── 06-File-Index.md      （文件索引）
 ├── 07-Setup.md           （环境配置）
 ├── 08-补充项.md          （如有，QC Loop 中补充）
-└── 09-后一步操作说明.md   （移交 AI 收尾后操作指引）
+└── 09-后一步操作说明.md   （移交AI 收尾后操作指引）
 ```
 
 ---
@@ -161,6 +182,7 @@ AI记忆转移是一个 AI→AI 任务交接工具，通过**5 步流程 + 7 道
 
 | 版本 | 日期 | 更新内容 |
 |------|------|---------|
+| V2.2 | 2026-06-23 | 重命名：移魂大法 → IRY (I Remember You)，增加创意说明 |
 | V2.1 | 2026-06-23 | 修复残留命名，Q3 填空改弹窗，触发确认机制，Q4-Q7 因果链加深，落盘兜底，JSON 模板 |
 | V2.0 | 2026-06-23 | 角色标准化，因果链重建，权责重划，Step 3 选择题化，09 操作说明，打回三选一 |
 | V1.0 | 2026-06-23 | 初始版本 |
@@ -173,17 +195,34 @@ AI记忆转移是一个 AI→AI 任务交接工具，通过**5 步流程 + 7 道
 
 ---
 
+# IRY (I Remember You) - AI Memory Transfer Toolkit
+
+> **Hand off without worry. Pick up without questions. New AI remembers everything about you.**
+
 ---
 
-# MemoryTransfer — Seamless AI-to-AI Task Handoff Tool
+## 💡 Creative Story
 
-> **Hand off without worry. Pick up without questions.**
+**IRY = I Remember You**
+
+What's the most painful part of switching AI assistants? —— **Repeating yourself**.
+
+- You have to re-explain the project background
+- You have to tell the new AI your communication style
+- You have to explain why certain files are off-limits
+- You have to repeat the pitfalls you've already stepped on
+
+**The romance of IRY**: After receiving the handoff package, the new AI says "I Remember You" — it knows your habits, the project state, and those landmines not to touch. It's as if the old AI never left.
+
+**Slogan**:
+- English: **New AI remembers everything about you and your old AI**
+- Chinese: **新AI记得你和老AI所有的事情**
 
 ---
 
 ## Overview
 
-MemoryTransfer (literally "Memory Transfer") is a standardized AI-to-AI task handoff tool. It uses a **5-step workflow + 7 causally-linked questions + QC loop + human spot check** to migrate context (user profile, project state, experience, landmines) from the transferring AI to the receiving AI — ensuring the receiving AI can start working immediately without asking follow-up questions.
+IRY (I Remember You) is a standardized AI-to-AI task handoff tool. It uses a **5-step workflow + 7 causally-linked questions + QC loop + human spot check** to migrate context (user profile, project state, experience, landmines) from the transferring AI to the receiving AI — ensuring the receiving AI can start working immediately without asking follow-up questions.
 
 **Core value**: Solve information asymmetry in AI task handoffs through human-AI collaboration and quality control loops.
 
@@ -193,7 +232,7 @@ MemoryTransfer (literally "Memory Transfer") is a standardized AI-to-AI task han
 
 ## Trigger Words
 
-Chinese trigger words are listed above. English triggers include: `pass the baton`, `seamless AI handoff`, `transfer project context`, `pick up where I left off`, `task handover`, `AI context migration`, `project transition`, `hand over to new AI`.
+Chinese trigger words are listed above. English triggers include: `IRY`, `I Remember You`, `pass the baton`, `seamless AI handoff`, `transfer project context`, `pick up where I left off`, `task handover`, `AI context migration`, `project transition`.
 
 ---
 
@@ -268,8 +307,8 @@ User asks 1 project-related question and scores:
 
 ## Installation & Usage
 
-1. Place `AI记忆转移 AI→AI任务无缝交接神器.md` in your AI platform's skill directory
-2. Say a trigger word (e.g., "pass the baton", "task handover")
+1. Place `IRY (我记得你) AI记忆转移任务交接神器.md` in your AI platform's skill directory
+2. Say a trigger word (e.g., "IRY", "I Remember You", "task handover")
 3. The AI auto-detects and executes the 5-step workflow
 4. Users only make multiple-choice selections
 
@@ -287,7 +326,7 @@ User asks 1 project-related question and scores:
 ## Package Structure
 
 ```
-{project-name}-MemoryTransfer-handoff-package-{execution-time}/
+{project-name}-IRY-handoff-package-{execution-time}/
 ├── 00-bootstrap.md          (Receiving AI boot guide)
 ├── 01-User-DNA.md           (User profile)
 ├── 02-Project-Spec.md       (Project spec)
@@ -314,6 +353,7 @@ User asks 1 project-related question and scores:
 
 | Version | Date | Changes |
 |---------|------|---------|
+| V2.2 | 2026-06-23 | Renamed: 移魂大法 → IRY (I Remember You), added creative story |
 | V2.1 | 2026-06-23 | Fixed naming leftovers, Q3 modal select, trigger confirmation, deepened Q4-Q7 causality, platform fallback, JSON template |
 | V2.0 | 2026-06-23 | Role renaming, causality rebuild, responsibility reshuffle, Step 3 choices, 09 guide, 3-way rollback |
 | V1.0 | 2026-06-23 | Initial release |
