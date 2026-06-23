@@ -1,0 +1,16 @@
+# IRY Skill .gitignore
+# 门神质量检查目录（仅本地使用，不提交）
+.gpqs/
+
+# Git 仓库文件
+.git/
+
+# Windows 批处理脚本（仅本地使用）
+*.cmd
+
+# macOS 系统文件
+.DS_Store
+
+# 临时文件
+*.tmp
+*.log
