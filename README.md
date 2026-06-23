@@ -1,4 +1,4 @@
-# 移魂大法 AI→AI 任务无缝交接神器
+# AI记忆转移 AI→AI 任务无缝交接神器
 
 > **无脑交接，无缝衔接，免去后顾之忧**
 
@@ -6,7 +6,7 @@
 
 ## 简介
 
-移魂大法是一个 AI→AI 任务交接工具，通过**5 步流程 + 7 道因果问答 + QC 质检 + 人工抽检**，将移交 AI 的上下文（用户画像、项目状态、经验、雷区）无损迁移至接收 AI，确保接收 AI 无需追问即可开工。
+AI记忆转移是一个 AI→AI 任务交接工具，通过**5 步流程 + 7 道因果问答 + QC 质检 + 人工抽检**，将移交 AI 的上下文（用户画像、项目状态、经验、雷区）无损迁移至接收 AI，确保接收 AI 无需追问即可开工。
 
 **核心价值**：解决 AI 任务交接时的信息不对称问题——通过人机协同 + 质检循环，让新 AI 无缝接手。
 
@@ -20,7 +20,7 @@
 
 | 触发词 | 适用场景 |
 |--------|---------|
-| `移魂大法` | 懂产品的人直接触发 |
+| `AI记忆转移` | 懂产品的人直接触发 |
 | `AI任务交接神器` | 理解产品定位的人 |
 | `AI任务交接` | 不懂 IP 但懂场景 |
 | `项目无缝交接` | 覆盖通用场景 |
@@ -115,8 +115,8 @@
 
 ## 安装与使用
 
-1. 将 `移魂大法 AI→AI任务无缝交接神器.md` 放入 AI 平台的 Skill 目录
-2. 在对话中说出触发词（如「移魂大法」「AI任务交接」）
+1. 将 `AI记忆转移 AI→AI任务无缝交接神器.md` 放入 AI 平台的 Skill 目录
+2. 在对话中说出触发词（如「AI记忆转移」「AI任务交接」）
 3. AI 自动识别后按 5 步流程执行
 4. 用户全程只需做选择题
 
@@ -134,7 +134,7 @@
 ## 交付包结构
 
 ```
-{项目名}-移魂大法交接包-{执行时间}/
+{项目名}-AI记忆转移交接包-{执行时间}/
 ├── 00-启动指令.md        （接收 AI 启动指令）
 ├── 01-User-DNA.md        （用户 DNA）
 ├── 02-Project-Spec.md    （项目规格）
@@ -175,7 +175,7 @@
 
 ---
 
-# YiHunDaFa — Seamless AI-to-AI Task Handoff Tool
+# MemoryTransfer — Seamless AI-to-AI Task Handoff Tool
 
 > **Hand off without worry. Pick up without questions.**
 
@@ -183,7 +183,7 @@
 
 ## Overview
 
-YiHunDaFa (literally "Soul Transfer Technique") is a standardized AI-to-AI task handoff tool. It uses a **5-step workflow + 7 causally-linked questions + QC loop + human spot check** to migrate context (user profile, project state, experience, landmines) from the transferring AI to the receiving AI — ensuring the receiving AI can start working immediately without asking follow-up questions.
+MemoryTransfer (literally "Memory Transfer") is a standardized AI-to-AI task handoff tool. It uses a **5-step workflow + 7 causally-linked questions + QC loop + human spot check** to migrate context (user profile, project state, experience, landmines) from the transferring AI to the receiving AI — ensuring the receiving AI can start working immediately without asking follow-up questions.
 
 **Core value**: Solve information asymmetry in AI task handoffs through human-AI collaboration and quality control loops.
 
@@ -268,7 +268,7 @@ User asks 1 project-related question and scores:
 
 ## Installation & Usage
 
-1. Place `移魂大法 AI→AI任务无缝交接神器.md` in your AI platform's skill directory
+1. Place `AI记忆转移 AI→AI任务无缝交接神器.md` in your AI platform's skill directory
 2. Say a trigger word (e.g., "pass the baton", "task handover")
 3. The AI auto-detects and executes the 5-step workflow
 4. Users only make multiple-choice selections
@@ -287,7 +287,7 @@ User asks 1 project-related question and scores:
 ## Package Structure
 
 ```
-{project-name}-YiHunDaFa-handoff-package-{execution-time}/
+{project-name}-MemoryTransfer-handoff-package-{execution-time}/
 ├── 00-bootstrap.md          (Receiving AI boot guide)
 ├── 01-User-DNA.md           (User profile)
 ├── 02-Project-Spec.md       (Project spec)
