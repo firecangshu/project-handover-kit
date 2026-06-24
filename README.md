@@ -5,34 +5,68 @@
 
 ---
 
-## 🤯 背景与痛点
+## 🚨 你有没有过这种经历？
 
-长期使用 AI 协作的核心痛点：每开启一次新会话，就意味着所有协作记忆清零，一切从头开始。
+用 AI 做项目，聊了几十轮，它终于理解了你的风格、项目的背景、哪些坑不能踩。结果——
 
-- 更换 AI / 重置会话后，历史协作信息全部清空
-- 反复复述项目背景、工作规则、个人习惯，效率低下
-- 交接内容零散、缺漏，导致新 AI 理解偏差、输出返工
-- 历史踩坑、禁忌规则无法延续，重复出现同类问题
+- 😩 会话过期了，换个新对话，又得从头讲一遍项目背景
+- 😤 换个模型试试，之前定好的规则、踩过的坑，它全忘了
+- 🤯 把项目交接给同事/另一个 AI，整理文档花了 2 小时，还漏了一半细节
+- 💔 每次换 AI 都像在带新人，反复解释"我要的不是这个，上次说过的..."
 
----
-
-## ✨ 简介
-
-IRY（I Remember You）是一款面向 AI 跨会话、跨实例的上下文记忆迁移与任务交接 Skill，旨在解决更换 AI 助手、重置会话、切换模型带来的信息断层问题。
-
-本工具支持将移交AI 会话中的用户画像、项目状态、工作习惯、历史经验、风险雷区等全量上下文信息，标准化无损迁移至接收AI 会话，**实现零重复解释、无缝接续工作**。
+**每次换 AI，都要重新讲一遍所有事情。这是 AI 协作最大的效率杀手。**
 
 ---
 
-## 💡 产品理念
+## ⭐ 支持一下
 
-日常使用 AI 最大的低效痛点：换 AI = 重新讲一遍所有事情。
+如果你觉得这个项目有用，**点个 Star** 支持一下吧！
 
-更换会话或新模型后，需要反复复述项目背景、个人沟通风格、业务规则、禁忌操作、过往踩坑经验，极大浪费时间与沟通成本。
+> 🎁 **Star 福利**：
+> 
+> 1. **《AI 协作最佳实践手册》** - 7 大章节，从 Prompt 写法到上下文管理，系统提升 AI 协作效率
+> 2. **3 套专属交接模板** - 开发者 / 内容创作者 / 项目管理，三个高频场景直接套用
+> 
+> **领取方式**：截图 Star 页面，提一个 Issue 注明「领取 Star 福利」，我会把资料发给你。
 
-IRY 的核心理念：让每一次 AI 交接，都有完整的记忆延续。新 AI 加载交接数据包后，可完整继承全部历史上下文，真正实现「我记得你」的连续协作体验。
+---
 
-**支持平台**：WorkBuddy / 百度搭子 / Claude Projects / GPTs / 任意 AI 平台（读取 Skill 文件即可触发）
+## ✨ 什么是 IRY？
+
+**IRY = I Remember You（我记得你）**
+
+一款 AI 跨会话记忆迁移与任务交接工具。把旧 AI 会话里的所有上下文——项目背景、你的偏好、踩过的坑、定好的规则——完整打包，一键迁移到新 AI。
+
+**新 AI 加载记忆包后，直接进入工作状态，不用你再解释一遍。**
+
+> 🎯 **一句话总结**：换 AI 不用再从头讲项目了，IRY 帮你把 AI 的记忆完整带走。
+
+---
+
+## 🚀 快速开始
+
+3 步上手，1 分钟搞定：
+
+1. **下载**：把 `SKILL.md` 放到你的 AI 平台 Skill 目录
+2. **触发**：对话里说「IRY」或「AI任务交接」
+3. **交接**：按提示走 7 步流程，生成记忆包，喂给新 AI
+
+**支持平台**：WorkBuddy / 百度搭子 / Claude Projects / GPTs / 任意 AI 平台
+
+---
+
+## 💡 效果对比
+
+| | 不用 IRY | 用了 IRY |
+|---|---------|---------|
+| 换 AI 后 | 从头讲项目背景、讲规则、讲偏好，半小时起步 | 导入记忆包，30 秒进入工作状态 |
+| 项目交接 | 整理文档、写说明、反复答疑，2 小时起 | 一键生成交接包，对方看完直接上手 |
+| 信息完整度 | 全靠记忆，漏这漏那，新 AI 理解偏差 | 10 个标准化文件全覆盖，零遗漏 |
+| 踩坑记录 | 历史错误全忘了，新 AI 重复踩坑 | 雷区红线完整继承，不再犯同样的错 |
+
+**一次交接，全量继承。** 接收 AI 完整承接所有记忆与工作状态，实现无缝续工、零重复沟通。
+
+**半成品项目也能交接。** 扫描时自动检测缺失项，记忆包用 `[暂缺]` 标注，不编造、不瞎补。
 
 ---
 
@@ -256,6 +290,7 @@ AI 扫描三件事：
 
 | 版本 | 日期 | 更新内容 |
 |------|------|---------|
+| V3.0 | 2026-06-24 | **高效重构**：删除所有选择题 → "浏览→清单→核对→补扫"闭环 / 统一确认格式（A/B/C） / 删除深度选择（统一Deep） / 新增B6阶段确认 / 跨平台兼容优化 |
 | V3.0 | 2026-06-23 | **重大重构**：7 步流程 / 隐私前置 / 扫描进度条 / 缺失项容忍 / 9 道题型化问答 / 10 文件结构 / 时间戳 |
 | V2.4 | 2026-06-23 | 流程重构（确认项目→选模式→执行） |
 | V2.3 | 2026-06-23 | README 结构重构：痛点前置、新增产品理念/核心能力/使用效果章节 |
@@ -300,6 +335,23 @@ AI 扫描三件事：
 
 ---
 
+## 🤝 参与共建
+
+欢迎参与 IRY 的开发和改进！
+
+- **提 Bug**：发现问题请提 Issue，尽量附上复现步骤
+- **提需求**：有好的想法或功能建议，欢迎讨论
+- **贡献代码**：Fork 后提交 PR，优质代码会被收录并署名
+- **分享案例**：如果你用 IRY 解决了实际问题，欢迎分享，会收录到案例展示中
+
+---
+
+## 📄 许可证
+
+MIT License - 可自由使用、修改、分发，保留版权声明即可。
+
+---
+
 # IRY (I Remember You) - AI Memory Transfer & Task Handover Skill
 
 > **New AI. It still remembers you.**
@@ -307,34 +359,68 @@ AI 扫描三件事：
 
 ---
 
-## 🤯 Background & Pain Points
+## 🚨 Have you ever had this experience?
 
-What's the most painful part of using AI assistants long-term? —— **Every new session means total memory wipe, starting from zero.**
+You've been working with an AI on a project for dozens of conversations. It finally understands your style, the project background, and what pitfalls to avoid. Then—
 
-- After switching AI / resetting session, all collaboration history is cleared
-- Repeating project background, work rules, personal habits — extremely inefficient
-- Scattered, incomplete handoff content causes new AI misunderstanding and rework
-- Historical pitfalls and taboo rules cannot persist, leading to repeated mistakes
+- 😩 The session expires, and you have to explain everything from scratch in a new chat
+- 😤 You switch models, and all the rules you set, all the mistakes it learned from—gone
+- 🤯 You hand off the project to a colleague or another AI, spend 2 hours writing docs, and still miss half the details
+- 💔 Every time you switch AI, it's like onboarding a new person all over again
 
----
-
-## ✨ Overview
-
-IRY (I Remember You) is a cross-session, cross-instance AI context memory migration and task handover Skill, designed to solve the information gap caused by switching AI assistants, resetting sessions, or changing models.
-
-This tool supports standardized, lossless migration of full-context information from old AI sessions — including user profile, project state, work habits, historical experience, and risk taboos — to new AI sessions, **achieving zero repeated explanation and seamless work continuation**.
+**Having to re-explain everything every time you switch AI is the biggest efficiency killer in AI collaboration.**
 
 ---
 
-## 💡 Product Philosophy
+## ⭐ Show Your Support
 
-The biggest inefficiency in daily AI usage: switching AI = re-explaining everything.
+If you find this project useful, **give it a Star** to show your support!
 
-After switching sessions or models, you need to repeatedly explain project background, personal communication style, business rules, taboo operations, and past lessons learned — wasting enormous time and communication cost.
+> 🎁 **Star Bonus**:
+> 
+> 1. **"AI Collaboration Best Practices Handbook"** - 7 chapters covering everything from prompt writing to context management
+> 2. **3 Exclusive Handover Templates** - Developer / Content Creator / Project Manager, ready to use
+> 
+> **How to claim**: Screenshot your Star and open an Issue with "Claim Star Bonus"—I'll send you the materials.
 
-IRY's core philosophy: make every AI handoff a complete memory continuation. After the new AI loads the handoff package, it fully inherits all historical context, truly realizing the continuous collaboration experience of "I Remember You".
+---
 
-**Platform support**: WorkBuddy / 百度搭子 / Claude Projects / GPTs / Any AI platform (trigger after reading Skill file)
+## ✨ What is IRY?
+
+**IRY = I Remember You**
+
+An AI cross-session memory migration and task handover tool. Package up all the context from your old AI session—project background, your preferences, lessons learned, established rules—and migrate it to a new AI in one click.
+
+**After loading the memory pack, the new AI jumps straight into work. No re-explaining needed.**
+
+> 🎯 **In one sentence**: Stop re-explaining your project every time you switch AI. IRY takes your AI's memory with you.
+
+---
+
+## 🚀 Quick Start
+
+3 steps, 1 minute to get started:
+
+1. **Download**: Place `SKILL.md` in your AI platform's skill directory
+2. **Trigger**: Say "IRY" or "task handover" in conversation
+3. **Handoff**: Follow the 7-step workflow to generate a memory pack for the new AI
+
+**Supported platforms**: WorkBuddy / 百度搭子 / Claude Projects / GPTs / Any AI platform
+
+---
+
+## 💡 Comparison
+
+| | Without IRY | With IRY |
+|---|-------------|----------|
+| After switching AI | Explain project background, rules, preferences from scratch—30 min minimum | Import memory pack, ready to work in 30 seconds |
+| Project handover | Organize docs, write instructions, answer questions—2 hours+ | Generate handover pack in one click, recipient gets up to speed instantly |
+| Information completeness | Relies on memory, things slip through, new AI misunderstands | 10 standardized files covering everything—zero gaps |
+| Lessons learned | History is forgotten, new AI repeats mistakes | Red lines and pitfalls fully inherited—no more same mistakes |
+
+**One handoff, full inheritance.** The receiving AI takes over all memory and work state for seamless continuation and zero repeated communication.
+
+**Half-finished projects work too.** Scan auto-detects missing items; memory pack marks them with `[暂缺]`—no fabrication, no guessing.
 
 ---
 
@@ -512,6 +598,7 @@ AI scans three things:
 
 | Version | Date | Changes |
 |---------|------|---------|
+| V3.0 | 2026-06-24 | **Ultra-efficient refactor**: Removed all选择题 → "Browse→Checklist→Verify→Supplement" loop / Unified confirmation format (A/B/C) / Deleted depth selection (unified Deep) / Added B6 stage confirmation / Cross-platform compatibility optimization |
 | V3.0 | 2026-06-23 | **Major refactor**: 7-step flow / privacy-first / scan progress bar / half-finished tolerance / 9 type-formatted questions / 10-file structure / timestamps |
 | V2.4 | 2026-06-23 | Flow refactor (confirm project → choose mode → execute) |
 | V2.3 | 2026-06-23 | README restructure: pain points first, added product philosophy/core capabilities/usage effect sections |
@@ -525,6 +612,23 @@ AI scans three things:
 ## Feedback Loop
 
 Usage feedback is recorded in `feedback.md`. The tool auto-checks it on next trigger for continuous improvement.
+
+---
+
+## 🤝 Contributing
+
+Welcome to participate in IRY's development and improvement!
+
+- **Report bugs**: Found an issue? Open an Issue with reproduction steps
+- **Request features**: Have ideas or feature suggestions? Let's discuss
+- **Contribute code**: Fork and submit PRs—quality contributions will be merged and credited
+- **Share your story**: If IRY solved a real problem for you, share it! We'll feature it in our showcase
+
+---
+
+## 📄 License
+
+MIT License - free to use, modify, and distribute, with attribution.
 
 ---
 
