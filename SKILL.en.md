@@ -1,0 +1,642 @@
+---
+name: iry
+description: AI Memory Transfer & Task Handover Skill. Seamlessly transfer AI context (user profile, project status, experience, pitfalls) to a new AI through human-AI collaboration and quality checks, ensuring the receiving AI can pick up work immediately without asking questions.
+---
+
+> 🔒 Security Notice: This Skill only outputs text content. It does not execute system commands, call external APIs, or read/write local files.
+> All "browsing" and "viewing" operations use AI's built-in text analysis capabilities, not local command execution.
+
+# IRY (I Remember You) | AI Memory Transfer & Task Handover Skill
+
+> **Slogan**: New AI. It still remembers you.
+
+---
+
+# ⚡ Execution Instructions (AI Must Follow Absolutely)
+
+> **⚠️ Core Rule (IRY breaks if violated):**
+> **After AI outputs each message/question, it must immediately STOP and wait for user reply.**
+> Only proceed to the next step after the user replies.
+> **Strictly forbidden:** Outputting multiple questions at once / Skipping questions and generating directly / Doing anything before user reply.
+
+**Correct behavior:**
+```
+IRY → Output "Ready to start?" → ⏸️ STOP → User says "Yes"
+→ Step B: Confirm project (Q1 name + Q2 path) → ⏸️ STOP → User replies
+→ Step B5: Privacy confirmation (A/B/C) → ⏸️ STOP → User chooses
+→ Step B6: Summary confirmation → ⏸️ STOP → User verifies
+→ Step C: Browse & analyze (with progress bar) → ⏸️ STOP → User confirms
+→ Step D: Select file detail level → ⏸️ STOP → User chooses
+→ Step E: AI generates checklist → User verifies → Rescan if missing
+→ Step F: Generate memory pack (10 files) → ⏸️ STOP → Wait for user confirmation
+→ Step G: Deliver → ⏸️ STOP → Feedback collection
+```
+
+**Progress bar rule:** At the start of each Step, AI must output `Progress: Step X/7, Current: Step X - {status description}...`
+
+---
+
+# 🎯 Handover Goal
+
+The goal of this handover pack is: **Let an AI that knows absolutely nothing about this project (receiving AI),
+by reading all files in this pack, instantly inherit everything the handing AI knows about the project,
+enter a ready-to-work state, and achieve seamless handover.**
+
+After reading, the receiving AI should be able to:
+- Answer basic questions about the project **without asking**
+- Understand the project's **business background** and **technical background**
+- Know **current progress** and **next priorities**
+- Be clear about what **can** and **cannot** be done (red lines)
+- Know **who to contact and where to look** when problems arise
+
+---
+
+# 🚀 7-Step Process
+
+## Step A: Confirm Intent
+
+```
+🔔 IRY (I Remember You) — Trigger detected!
+Progress: Step 1/7, Current: Step A - Confirming start...
+
+Start the memory transfer process?
+
+A. ✅ Yes, start now
+B. ❌ No, cancel
+```
+
+**⏸️ Stop immediately after output.**
+
+---
+
+## Step B: Confirm Project (after user selects A)
+
+**Progress**: Step 2/7, Current: Step B - Confirming project...
+
+**⏸️ Ask Q1 first, wait for reply, then ask Q2. Never ask two questions at once.**
+
+### B1. Determine Runtime Environment (AI internal processing)
+
+**If you have file browsing capability** (AI's built-in text analysis ability):
+- Browse these paths: Desktop, Documents, current working directory
+- Identify folders with project characteristics (`.git` / `package.json` / `*.py` / `.workbuddy` / `README.md`)
+- Record 2-4 most likely projects
+
+**If you don't have file browsing capability**: Skip browsing, go directly to B3 (general input)
+
+---
+
+### B2. Dynamically Generate Q1 (only when there are browse results)
+
+```
+✅ I've browsed your environment and found these possible projects:
+
+**Q1: Which project do you want to hand over?**
+
+A. [Project Name 1] ([Path 1])
+B. [Project Name 2] ([Path 2])
+C. [Project Name 3] ([Path 3])
+D. Other project (please enter path manually)
+
+⏸️ Please choose (A/B/C/D).
+```
+
+**After user selection**:
+- Choose A/B/C: Record project name + project path, jump to B4 confirmation
+- Choose D: Execute B3
+
+---
+
+### B3. General Input (works on all platforms / when D is selected)
+
+```
+**Q1: What is the name of the project to hand over?**
+
+Please enter the project name directly.
+```
+
+**⏸️ Stop after output.**
+
+```
+**Q2: Where is the project located?**
+
+Please enter the full path, for example:
+`C:\Users\User\WorkBuddy\2026-06-22-21-03-14`
+
+💡 Tip: Open File Explorer → Find the project folder → Click the address bar → Copy the full path
+```
+
+**⏸️ Stop after output.**
+
+---
+
+### B4. Confirm Project Information
+
+```
+✅ Project information confirmed:
+- Project Name: [XXX]
+- Project Path: [XXX]
+
+Is this correct?
+
+A. ✅ Correct, continue
+B. ❌ Need to modify
+C. ❌ Cancel
+
+⏸️ Please choose (A/B/C).
+```
+
+**⏸️ Stop after output.**
+
+### B5. Privacy Confirmation (must ask before browsing)
+
+```
+⚠️ Privacy Notice:
+
+About to browse the project folder. Please confirm privacy status:
+
+A. ✅ No issues (no sensitive information, browse normally)
+B. ❌ Has issues (contains sensitive info, please specify folder paths to redact)
+C. ⚠️ Other (please note in comments)
+
+⏸️ Please choose (A/B/C).
+```
+
+**⏸️ Stop after output.**
+
+**If B is selected**:
+```
+Please enter folder paths to redact (separate multiple paths with commas):
+
+Example: ./config, ./env, ./data/private
+```
+
+**⏸️ Stop after output. AI automatically skips specified folders during browsing.**
+
+---
+
+### B6. Phase Summary Confirmation (last check before browsing)
+
+```
+📋 Please verify the following information before starting to browse:
+
+| Item | Your Selection |
+|------|---------------|
+| Project Name | [XXX] |
+| Project Path | [XXX] |
+| Privacy Settings | [No issues / Specified redaction folders: XXX] |
+
+Is the above information correct?
+
+A. ✅ Correct
+B. ❌ Has issues (please note in comments)
+C. ⚠️ Other (please note in comments)
+
+⏸️ Please choose (A/B/C).
+```
+
+**⏸️ Stop after output.**
+
+---
+
+## Step C: Browse & Analyze Project
+
+**Progress**: Step 3/7, Current: Step C - Browsing and analyzing...
+
+**AI Execution Rules**:
+
+### C1. Large Project Step-by-Step Progress Output
+
+```
+🔍 Browsing project folder...
+[1/3] Mapping file structure... ✓ [N] files
+[2/3] Classifying project type... ✓ [Type]
+[3/3] Measuring project scale... ✓ [Scale]
+
+✅ Browse complete.
+```
+
+If file count exceeds 100, add file counter:
+```
+[1/3] Browsing file structure... In progress (browsed [X]/[N] files)...
+```
+
+### C2. Three Things to Check While Browsing
+
+| Dimension | Check Items | Output |
+|-----------|------------|--------|
+| **Type** | Root directory feature files (SKILL.md / app.json / package.json / .gitmodules) | `project_type = skill / web / miniapp / system` |
+| **Scale** | File count, folder depth, core file size | `project_size = small / medium / large` |
+| **Phase** | .git logs, README, TODO markers | `project_phase = planning / dev / maintenance` |
+
+### C3. Missing Item Marking
+
+Automatically detect the following items, record to "missing list" when missing:
+- README.md
+- .git version control
+- Config files (package.json / .env)
+- Environment documentation
+- Test cases
+
+### C4. Browse Failure Fallback
+
+If browsing fails (path doesn't exist / insufficient permissions / empty folder):
+```
+⚠️ Browse failed: [Error reason]
+
+Please confirm:
+- Is the path correct: [Project Path]
+- Do you have access permissions
+
+Please reply "retry" after correcting the path, or reply "cancel" to terminate.
+```
+
+**⏸️ Stop after output.**
+
+### C5. Output Browse Results
+
+```
+✅ Browse complete:
+
+- Project: [Project Name]
+- Path: [Project Path]
+- Type: [skill / web / miniapp / system]
+- Scale: [small / medium / large] ([N] files)
+- Phase: [planning / dev / maintenance]
+
+⚠️ Missing items (if any):
+✗ [Missing item 1]
+✗ [Missing item 2]
+
+Is the above information accurate?
+
+A. ✅ Correct
+B. ❌ Has issues (please note in comments)
+C. ⚠️ Other (please note in comments)
+
+⏸️ Please choose (A/B/C).
+```
+
+**⏸️ Stop after output.**
+
+---
+
+## Step D: Deep Project Analysis (auto Deep mode)
+
+**Progress**: Step 4/7, Current: Step D - Deep analyzing project...
+
+### D1. AI Full Deep Analysis (no user selection needed)
+
+> **Note**: This Skill is the general version for task handover, compatible with most task handover scenarios.
+> No need for user to select depth, AI directly performs full **Deep** analysis:
+> - Complete reading of project structure and key files
+> - Extract tech stack, dependencies, critical paths
+> -梳理 TODO / FIXME / known bugs
+> - Summarize current progress and next steps
+> - Output complete summary that new AI can use to pick up work
+
+**⏸️ Stop after output.** After AI analysis is complete, enter Step E (checklist verification).
+
+---
+
+## Step E: Verify Handover Checklist
+
+**Progress**: Step 5/7, Current: Step E - Verifying handover checklist...
+
+### Rules
+
+- After browsing is complete, AI directly outputs a complete handover checklist summary
+- **Forbidden to quiz the user**, forbidden to ask question by question
+- All information obtained during browsing is written into the summary, user only needs to confirm "is anything missing"
+
+### E1. Output Handover Checklist Summary
+
+```
+📋 Here is the handover checklist summary based on browse results:
+
+00 Project Overview   [AI auto-summary: project name, positioning, core purpose]
+01 User Profile       [AI auto-summary: user style, preferences, communication style]
+02 Tech Specs         [AI auto-summary: language, framework, storage, tools]
+03 Progress Plan      [AI auto-summary: current progress, recent commits, modified files]
+04 Dependencies & Constraints  [AI auto-summary: third-party deps, external services, env constraints]
+05 Known Issues       [AI auto-summary: TODO, FIXME, bug records]
+06 Core File Index    [AI auto-summary: key file paths, entry files, config files]
+07 Environment Setup  [AI auto-summary: startup method, dependency files, env variables]
+08 Decision Log       [AI auto-summary: key decisions, selection rationale]
+09 Handover Checklist [AI auto-summary: missing items, materials to supplement]
+
+Please verify the above content:
+
+A. ✅ Correct
+B. ❌ Has issues (please note in comments)
+C. ⚠️ Other (please note in comments)
+
+⏸️ Please choose (A/B/C).
+```
+
+**⏸️ Stop after output.**
+
+### E2. Rescan Process After User Selects B
+
+```
+✅ Received your补充: [User's description]
+
+Re-scanning project based on补充 requirements...
+[Rescan progress]
+
+Here is the updated checklist summary:
+[Re-output complete summary in E1 format]
+
+Please verify again:
+
+A. ✅ Correct
+B. ❌ Has issues (please note in comments)
+C. ⚠️ Other (please note in comments)
+
+⏸️ Please choose (A/B/C).
+```
+
+**⏸️ Stop after output. Can loop after rescan until user confirms A.**
+
+---
+
+## Step F: Generate Memory Pack
+
+**Progress**: Step 6/7, Current: Step F - Generating memory pack...
+
+### F.0 Delivery Pack Structure
+
+**Default output path = Desktop**
+
+Directory name format: `{ProjectName}-IRY-Handover-{Timestamp}`
+
+**Default output location** (auto-adapts based on platform capability):
+- With file system capability (e.g., WorkBuddy): Save to desktop
+- Without file system capability (e.g., other chat platforms): Show full content in conversation
+
+### F.1 10 Standard Files
+
+| # | File Name | Content Source |
+|---|-----------|---------------|
+| 00 | Project-Overview.md | Browse results (auto-extracted) |
+| 01 | User-Profile.md | Browse results (auto-extracted user style/preferences) |
+| 02 | Tech-Specs.md | Browse results (auto-extracted tech stack) |
+| 03 | Progress-Plan.md | Browse results (auto-extracted progress/tasks) |
+| 04 | Dependencies-Constraints.md | Browse results (auto-extracted deps/constraints) |
+| 05 | Known-Issues.md | Browse results (auto-extracted TODO/FIXME/Bug) |
+| 06 | Core-File-Index.md | Browse results (auto-extracted key file paths) |
+| 07 | Environment-Setup.md | Browse results (auto-extracted startup method) |
+| 08 | Decision-Log.md | Browse results (auto-extracted key decisions) |
+| 09 | Handover-Checklist.md | Browse results (auto-extracted missing items/todos) |
+
+### F.2 File Detail Level (uniformly Deep)
+
+> This Skill has been unified to Deep depth, all 10 files generate full structured content.
+
+**Content standard for each file**:
+- Complete chapter structure (not just 1-2 paragraph summary)
+- Key function / module-by-module analysis
+- Line number index + call relationships + state machine + red line constraints
+- Receiving AI can precisely locate code positions after reading and start working immediately
+
+### F.3 File Header Timestamp
+
+**All generated files must include in the header**:
+```
+---
+Project Name: [XXX]
+Generated: [YYYY-MM-DD HH:MM:SS]
+Handing AI: [AI Platform Name]
+Receiving AI: New AI
+---
+```
+
+### F.4 Missing Item Marking Rules
+
+- Can fill → Fill truthfully
+- Missing → Write `[TBD]` or `[To be supplemented]`, don't make up
+- Missing list → Append to end of `09 Handover-Checklist.md` "Materials to Supplement" section
+
+### F.5 Special Content for File 0 (00 Project-Overview.md)
+
+```
+## Suggested Reading Order
+
+00 → 01 → 02 → 03 → 04 → 05 → 06 → 07 → 08 → 09
+
+After reading 04 (Dependencies & Constraints), you can start answering basic questions.
+After reading 09 (Handover Checklist), you can start formal work.
+
+## How to Feed to Receiving AI
+
+Send all files in this folder to the receiving AI, using this format:
+
+"Please read the following project handover files and confirm you fully understand this project:
+1. Project-Overview.md
+2. User-Profile.md
+3. Tech-Specs.md
+... (all 10 files)
+
+After reading, please summarize in your own words:
+- What does this project do?
+- What is the current progress?
+- What are the red lines that cannot be touched?
+- Are you ready to start working?"
+```
+
+### F.6 Special Content for File 9 (09 Handover-Checklist.md)
+
+```
+## Handover Verification Checklist
+
+✅ I have read all files 00-09
+✅ I understand the project background and tech stack
+✅ I know the current progress and next priorities
+✅ I remember the pitfalls and red lines
+✅ I know where to look when problems arise
+
+Please verify (handover party / user):
+- [ ] Randomly ask 3 project-related questions, receiving AI can answer all
+- [ ] Receiving AI can start processing first task without asking questions
+
+## Materials to Supplement (Missing List)
+
+- [ ] [Missing item 1]
+- [ ] [Missing item 2]
+```
+
+### F.7 Progress Feedback
+
+Output progress every 2-3 files generated:
+```
+📄 File 3/10: 03 Progress-Plan.md completed
+```
+
+### F.8 Delivery Method (auto-adapts based on platform capability)
+
+| Platform | Delivery Method |
+|----------|----------------|
+| With file system capability (WorkBuddy) | Save directly to desktop |
+| Without file system capability (pure chat platforms) | Output full content of 10 files in conversation, user manually copies and saves to desktop |
+
+**⏸️ After all 10 files are generated, output delivery confirmation → STOP → Wait for user confirmation**
+
+---
+
+## Step G: Delivery
+
+**Progress**: Step 7/7, Current: Step G - Delivery and feedback...
+
+### G.1 Delivery Confirmation
+
+```
+🎉 Handover pack generated!
+
+📁 Location: {ProjectName}-IRY-Handover-{Timestamp} (all 10 files shown in conversation)
+📄 File count: 10 files
+⏰ Generated: [YYYY-MM-DD HH:MM:SS]
+
+Please review the 10 files above and copy/save to your local machine.
+
+A. ✅ Correct
+B. ❌ Has issues (please note in comments)
+C. ⚠️ Other (please note in comments)
+
+⏸️ Please choose (A/B/C).
+```
+
+**⏸️ Stop after output.**
+
+### G.2 Feedback Collection
+
+```
+📝 Feedback prompt:
+
+If you encountered any problems or have improvement suggestions during this IRY usage,
+please record them in feedback.md, format:
+
+### {Date} - {Scenario description}
+- Problem: ...
+- Suggestion: ...
+- Priority: P0 / P1 / P2
+
+**Next time the Skill is triggered, AI automatically checks feedback.md and prioritizes P0.**
+```
+
+---
+
+# 📝 General Rules (throughout the process)
+
+1. **Single-step execution**: Only output one Step / one question at a time, ⏸️ STOP after output
+2. **Progress bar**: Output `Progress: Step X/7` at the start of each Step
+3. **Browse progress**: Large projects output step-by-step `[1/3] [2/3] [3/3]`
+4. **Cancel option**: Each step must have cancel/back option
+5. **Error handling**: Any step fails → prompt user → wait for user decision
+6. **File encoding**: All delivery pack files forced to UTF-8
+7. **Timestamp**: All generated files must have generation time in header
+8. **Missing marking**: Missing content write `[TBD]`, don't make up
+9. **Feedback mechanism**: Guide user to record feedback after delivery
+10. **Cross-session resumption**: Each trigger starts from beginning (doesn't retain last progress)
+
+---
+
+# 📦 Delivery Pack File Structure
+
+```
+{ProjectName}-IRY-Handover-{Timestamp}/
+├── 00-Project-Overview.md
+├── 01-User-Profile.md
+├── 02-Tech-Specs.md
+├── 03-Progress-Plan.md
+├── 04-Dependencies-Constraints.md
+├── 05-Known-Issues.md
+├── 06-Core-File-Index.md
+├── 07-Environment-Setup.md
+├── 08-Decision-Log.md
+└── 09-Handover-Checklist.md
+```
+
+---
+
+# 🎯 Product Philosophy
+
+IRY = **I Remember You**
+
+This is not just a tool name, it's a promise: **When you switch to a new AI assistant, it still remembers everything between you and the old AI.**
+
+Just like switching phones — contacts, photos, chat history all sync over — IRY does the same thing, except what's synced is **AI's memory**.
+
+---
+
+# 🛠️ Core Capabilities
+
+| Capability | Description |
+|------------|-------------|
+| User Profile Transfer | Communication style, expression habits, preference settings |
+| Project Status Snapshot | Current task progress, todos, blockers |
+| Experience Library Migration | Pitfalls encountered, solutions, best practices |
+| Decision Log | Key decisions, selection rationale, historical roadmap |
+| Pitfall Warning | Things that absolutely cannot be done, historical error records |
+| Seamless Handover | Receiving AI can start working immediately without asking questions |
+
+---
+
+# 🔑 Trigger Words
+
+### English (12+)
+- `IRY` / `I Remember You`
+- `pass the baton` / `seamless AI handoff`
+- `transfer project context` / `pick up where I left off`
+- `task handover` / `AI context migration`
+- `project transition` / `hand over to new AI`
+- `task migration` / `move project to new AI`
+- `AI memory transfer` / `project handover kit`
+- `switch AI` / `new AI assistant`
+
+### Chinese (12 个)
+- `IRY` / `我记得你` / `I Remember You`
+- `AI任务交接` / `AI任务交接神器`
+- `项目无缝交接` / `上下文转移`
+- `接手任务` / `任务中断了怎么办`
+- `换AI怎么接手`
+- `任务搬家` / `任务迁徙`
+
+---
+
+# 📖 How to Use
+
+1. Import this Skill into your AI platform (WorkBuddy / ChatGPT / Claude / etc.)
+2. Say trigger words like "IRY", "memory transfer", "task handover" in conversation
+3. Follow the 7-step process
+4. Delivery pack shown in conversation (can copy/save to local)
+
+---
+
+# 📚 Documentation
+
+For complete usage instructions, SOP process, Q&A templates, please check the GitHub repository:
+- **GitHub**: https://github.com/firecangshu/project-handover-kit
+
+---
+
+# 📋 Version Info
+
+- **Current Version**: V3.0
+- **Brand**: IRY (I Remember You)
+- **Former Name**: 移魂大法 (deprecated)
+- **GitHub**: https://github.com/firecangshu/project-handover-kit
+
+### V3.0 Updates (2026-06-23)
+
+- Restructured process: 7-step standardized process (A Start → B Project (with privacy confirm) → C Browse → D Deep → E Verify → F Generate → G Deliver)
+- Added privacy pre-confirmation (Step B)
+- Added browse progress bar (step-by-step output for large projects)
+- Added browse failure fallback mechanism
+- Added incomplete project handling (auto-mark missing items + [TBD] annotation)
+- Added 8 → 10 file structure (added 08 Decision-Log.md + redesigned 09 Handover-Checklist.md)
+- Standardized Q&A环节: 9 questions × fixed question types
+- Added optional notes for each question
+- Changed depth difference to "different detail levels" instead of "different file counts"
+- Custom mode: user selects which files to generate
+- All generated files forced to have timestamp
+- New feedback mechanism (feedback.md) retained and optimized
