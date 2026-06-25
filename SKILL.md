@@ -1,6 +1,17 @@
 ---
-name: iry
-description: AI 记忆转移 & 任务交接神器。将移交AI 的上下文（用户画像、项目状态、经验、雷区）无损迁移至接收AI，通过人机协同与质检循环，确保接收AI 无需追问即可无缝衔接开工。
+name: IRY 任务交接
+description: AI 跨会话记忆转移，换新 AI 不用重新解释，7步完成项目交接
+version: 3.0.0
+author: 杨博
+trigger:
+- "IRY"
+- "我记得你"
+- "AI任务交接"
+- "项目交接"
+- "记忆转移"
+- "换AI"
+- "上下文迁移"
+- "交接项目"
 ---
 
 > 🔒 安全声明：本 Skill 仅输出文本内容，不执行任何系统命令、不调用外部 API、不读写本地文件。
@@ -613,7 +624,7 @@ IRY = **I Remember You**（我记得你）
 # 📚 详细文档
 
 完整的使用说明、SOP 流程、问答模板请查看 GitHub 仓库：
-- **GitHub**: https://github.com/firecangshu/project-handover-kit
+- **GitHub**: https://github.com/firecangshu/IRY-skill
 
 ---
 
@@ -622,7 +633,7 @@ IRY = **I Remember You**（我记得你）
 - **当前版本**: V3.0
 - **品牌**: IRY (I Remember You)
 - **原名称**: 移魂大法（已废弃）
-- **GitHub**: https://github.com/firecangshu/project-handover-kit
+- **GitHub**: https://github.com/firecangshu/IRY-skill
 
 ### V3.0 更新内容（2026-06-23）
 

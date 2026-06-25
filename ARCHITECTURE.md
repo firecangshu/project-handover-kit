@@ -266,8 +266,8 @@ IRY 可以与其他 Skill 协同工作：
 ## 9. 联系方式
 
 - **开发者**：firecangshu
-- **GitHub**：https://github.com/firecangshu/project-handover-kit
-- **Issues**：https://github.com/firecangshu/project-handover-kit/issues
+- **GitHub**：https://github.com/firecangshu/IRY-skill
+- **Issues**：https://github.com/firecangshu/IRY-skill/issues
 
 ---
 
