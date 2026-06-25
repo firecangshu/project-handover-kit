@@ -378,10 +378,11 @@ If you find this project useful, **give it a Star** to show your support!
 
 > 🎁 **Star Bonus**:
 > 
-> 1. **"AI Collaboration Best Practices Handbook"** - 7 chapters covering everything from prompt writing to context management
-> 2. **3 Exclusive Handover Templates** - Developer / Content Creator / Project Manager, ready to use
+> Give it a Star ⭐ and unlock bonus materials directly in the extras folder:
+> 1. **AI Collaboration Best Practices Handbook** — 7 chapters on prompts, context management, and building efficient AI workflows
+> 2. **3 Exclusive Handover Templates** — Developer / Content Creator / Project Manager, battle-tested and ready to use
 > 
-> **How to claim**: Screenshot your Star and open an Issue with "Claim Star Bonus"—I'll send you the materials.
+> 📂 Location: `extras/` folder
 
 ---
 
@@ -448,11 +449,11 @@ Completely solve information asymmetry and context fragmentation in AI cross-ses
 
 ---
 
-## 🚀 Usage Effect
+## 🚀 Why It Works
 
-**One handoff, full inheritance.** The new AI fully undertakes all memories and work states from the old session, achieving seamless work continuation, stable collaboration, and zero repeated communication.
+**One handoff, full inheritance.** The receiving AI takes over all memory and work state from the old session — seamless continuation, stable collaboration, zero repeated communication.
 
-**Half-finished works too.** Scan auto-detects missing items; memory pack uses `[暂缺]` to mark, no fabrication, no fake padding.
+**Half-finished projects work too.** Scanning auto-detects missing items; memory pack marks them with `[TBD]` — no fabrication, no guessing.
 
 ---
 
@@ -471,80 +472,80 @@ Chinese trigger words are listed above. English triggers include: `IRY`, `I Reme
 
 ## 7-Step Workflow
 
-### Step A: Confirm intent
+### Step A: Confirm Intent
 
-AI outputs "Start IRY?" → User replies A/B.
+AI outputs "Start IRY?" → User replies A (Yes) / B (No).
 
-### Step B: Confirm project
+### Step B: Confirm Project
 
-- Q1: Project name
-- Q2: Project path
-- Confirm then proceed
+- **Q1**: Project name
+- **Q2**: Project path
+- **B5**: Privacy confirmation (mandatory before scanning)
+  - A: No sensitive info, scan normally
+  - B: Has sensitive info, specify folders to redact
+  - C: Cancel
+- **B6**: Phase summary confirmation (final check before scanning)
 
-**Hybrid design**: with scan capability → smart recommend 2-4 projects; without → manual input.
+**Hybrid design**: With file scanning capability → smart recommend 2-4 projects; without → manual input.
 
-### Step B5: Privacy confirm (mandatory before scan)
+### Step C: Browse & Analyze Project
 
-- A: No sensitive info, normal scan
-- B: Yes, specify folders to mask
-- C: Cancel scan, end flow
-
-### Step C: Scan & analyze project
-
-AI scans three things:
+AI scans three dimensions:
 - **Type**: skill / web / miniapp / system
-- **Size**: small / medium / large
+- **Scale**: small / medium / large
 - **Phase**: planning / dev / maintenance
 
-**Auto-detect missing items**: README / .git / config / env docs / tests.
+**Auto-detect missing items**: README / .git / config files / env docs / test cases.
 
-**Scan failure fallback**: prompt user to correct path, rescan.
+**Scan failure fallback**: Prompt user to correct path, rescan.
 
-### Step D: Determine depth
+**Progress feedback**: Large projects output step-by-step progress `[1/3] [2/3] [3/3]`.
 
-- **Lite** — 1-2 summary paragraphs
-- **Standard** (recommended) — full structured content
-- **Deep** — Standard + architecture diagrams / data flow / security audit appendices
-- **Custom** — user checks which files to generate
+### Step D: Deep Project Analysis
 
-### Step E: Adaptive questioning (9 questions × fixed types)
+Unified **Deep** mode — no depth selection. AI performs full deep analysis:
+- Complete project structure and key file review
+- Extract tech stack, dependencies, critical paths
+- Map out TODO / FIXME / known bugs
+- Summarize current progress and next steps
+- Output complete summary the receiving AI can use immediately
 
-| # | Type | Topic | Maps to |
-|---|------|-------|---------|
-| Q1 | Single | Project phase | 03 State & Plan |
-| Q2 | Single | Urgency | 01 User DNA + 09 Handover Checklist |
-| Q3 | Single | Tech stack | 02 Technical Spec |
-| Q4 | Multi | Risks/blockers | 05 Known Issues + 04 Constraints |
-| Q5 | Multi | External deps | 04 Dependencies & Constraints |
-| Q6 | Multi | Pre-knowledge | 00 Project Overview + 09 Handover Checklist |
-| Q7 | T/F | Runnable? | 07 Setup Guide |
-| Q8 | T/F | Docs complete? | 06 File Index |
-| Q9 | Open | Supplementary | Distributed by content |
+### Step E: Verify Handover Checklist
 
-**Each question ends with optional note (≤50 chars)** for uncovered details.
+- AI outputs complete handover checklist summary based on scan results
+- **No quizzing the user** — all info extracted automatically during scanning
+- User only confirms "is anything missing"
+- If missing → AI rescans and updates checklist
+- Loop until user confirms correctness
 
-### Step F: Generate memory pack
+### Step F: Generate Memory Pack
 
-10 standard files + file header timestamps + missing item markers.
+10 standard files + header timestamps + `[TBD]` markers for missing items.
 
-### Step G: Deliver + feedback
+**File detail level**: All 10 files generated at Deep depth with full structured content.
 
-- Deliver to desktop
-- Guide user to record feedback
+### Step G: Deliver + Feedback
+
+- Show all 10 files in conversation (user copies/saves locally)
+- Guide user to record feedback in `feedback.md`
 
 ---
 
 ## Core Design Principles
 
-1. **Hybrid scan**: smart recommend if capable, manual input if not
-2. **Privacy first**: must ask before scan, no naked run
-3. **Single-step interaction**: ask 1 question at a time, immediate STOP after output
-4. **Visible progress**: progress bar per step, scan feedback in sub-steps
-5. **Half-finished tolerance**: auto-mark missing items, memory pack uses `[暂缺]`
-6. **Adjustable depth**: Lite/Standard/Deep/Custom, user decides
-7. **Feedback loop**: auto-check `feedback.md` on each trigger, prioritize P0
-8. **Clear roles**: transfer-AI leads handover, receive-AI reads pack, user verifies
-9. **Timestamp traceability**: all files have generation time, supports version comparison
+1. **Single-step execution**: Output one step/question at a time, STOP immediately after output
+2. **Progress bar**: Output `Progress: Step X/7` at the start of each step
+3. **Scan progress**: Large projects output step-by-step `[1/3] [2/3] [3/3]`
+4. **Privacy first**: Must confirm before scanning, no blind scanning
+5. **Cancel option**: Every step must have cancel/go-back option
+6. **Error handling**: Any step fails → prompt user → wait for user decision
+7. **Half-finished tolerance**: Auto-mark missing items, use `[TBD]` in memory pack
+8. **Unified Deep depth**: All 10 files generated at full depth, no selection needed
+9. **Checklist verification**: "Browse → Checklist → Verify → Rescan" closed loop
+10. **Unified confirmation format**: A/B/C three options for all confirmations
+11. **Feedback loop**: Auto-check `feedback.md` on each trigger, prioritize P0
+12. **Timestamp traceability**: All generated files have generation time in header
+13. **Cross-platform compatible**: Works on any AI platform by reading SKILL.md
 
 ---
 
@@ -598,11 +599,11 @@ AI scans three things:
 
 | Version | Date | Changes |
 |---------|------|---------|
-| V3.0 | 2026-06-24 | **Ultra-efficient refactor**: Removed all选择题 → "Browse→Checklist→Verify→Supplement" loop / Unified confirmation format (A/B/C) / Deleted depth selection (unified Deep) / Added B6 stage confirmation / Cross-platform compatibility optimization |
-| V3.0 | 2026-06-23 | **Major refactor**: 7-step flow / privacy-first / scan progress bar / half-finished tolerance / 9 type-formatted questions / 10-file structure / timestamps |
+| V3.0 | 2026-06-24 | **Efficiency refactor**: Removed all quiz questions → "Browse→Checklist→Verify→Rescan" closed loop / Unified confirmation format (A/B/C) / Removed depth selection (unified Deep) / Added B6 stage confirmation / Cross-platform compatibility optimization |
+| V3.0 | 2026-06-23 | **Major refactor**: 7-step workflow / privacy-first / scan progress bar / half-finished tolerance / 9 type-formatted questions / 10-file structure / timestamps |
 | V2.4 | 2026-06-23 | Flow refactor (confirm project → choose mode → execute) |
 | V2.3 | 2026-06-23 | README restructure: pain points first, added product philosophy/core capabilities/usage effect sections |
-| V2.2 | 2026-06-23 | Renamed: 移魂大法 → IRY (I Remember You), added creative story |
+| V2.2 | 2026-06-23 | Rebranded: 移魂大法 → IRY (I Remember You), added creative story |
 | V2.1 | 2026-06-23 | Fixed naming leftovers, Q3 modal select, trigger confirmation, deepened Q4-Q7 causality, platform fallback, JSON template |
 | V2.0 | 2026-06-23 | Role renaming, causality rebuild, responsibility reshuffle, Step 3 choices, 09 guide, 3-way rollback |
 | V1.0 | 2026-06-23 | Initial release |
