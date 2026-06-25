@@ -27,7 +27,7 @@
 > 1. **《AI 协作最佳实践手册》** - 7 大章节，从 Prompt 写法到上下文管理，系统提升 AI 协作效率
 > 2. **3 套专属交接模板** - 开发者 / 内容创作者 / 项目管理，三个高频场景直接套用
 > 
-> **领取方式**：截图 Star 页面，提一个 Issue 注明「领取 Star 福利」，我会把资料发给你。
+> 📂 **直接解锁**：点 Star 后，福利资料全部在 `extras/` 目录，无需领取，直接用。
 
 ---
 
@@ -66,13 +66,13 @@
 
 **一次交接，全量继承。** 接收 AI 完整承接所有记忆与工作状态，实现无缝续工、零重复沟通。
 
-**半成品项目也能交接。** 扫描时自动检测缺失项，记忆包用 `[暂缺]` 标注，不编造、不瞎补。
+**半成品项目也能交接。** 浏览时自动检测缺失项，记忆包用 `[暂缺]` 标注，不编造、不瞎补。
 
 ---
 
 ## ⚙️ 核心能力
 
-IRY 采用标准化 **7 步交接流程 + 9 道题型化问答 + 半成品容忍 + 反馈迭代**的多重校验机制，保障迁移内容完整、准确、可用。
+IRY 采用标准化 **7 步交接流程 + 浏览→清单→核对→补扫高效闭环 + 半成品容忍 + 反馈迭代**的多重校验机制，保障迁移内容完整、准确、可用。
 
 可迁移核心信息包含但不限于：
 
@@ -98,14 +98,7 @@ IRY 采用标准化 **7 步交接流程 + 9 道题型化问答 + 半成品容忍
 
 **一次交接，全量继承。** 接收AI 完整承接移交AI 会话所有记忆与工作状态，实现无缝续工、稳定协作、零重复沟通。
 
-**半成品也能交接**。扫描时自动检测缺失项，记忆包用 `[暂缺]` 标注，不编造、不瞎补。
-
----
-
-## 📌 Slogan
-
-- 中文：**新 AI 记得你和老 AI 所有的事情**
-- English：**New AI remembers everything about you and your old AI**
+**半成品也能交接**。浏览时自动检测缺失项，记忆包用 `[暂缺]` 标注，不编造、不瞎补。
 
 ---
 
@@ -148,7 +141,7 @@ IRY 采用标准化 **7 步交接流程 + 9 道题型化问答 + 半成品容忍
 以下规则适用于整个交接流程：
 
 1. **进度条**：每步开始时，AI 输出 `进度：Step X/7，当前：Step X - {状态描述}...`
-2. **扫描进度**：大型项目分步输出 `[1/3] [2/3] [3/3]`
+2. **浏览进度**：大型项目分步输出 `[1/3] [2/3] [3/3]`
 3. **触发确认**：任何触发词命中后，AI 先确认「是否启动 IRY？」，防止误触发
 4. **取消选项**：每步必须包含取消/回退选项
 5. **错误处理**：任何步骤失败 → 输出错误信息 → 询问用户决策
@@ -173,47 +166,34 @@ AI 输出「是否启动 IRY？」→ 用户回复 A/B。
 - Q2：项目地址
 - 确认后进入下一步
 
-**混合设计**：有文件扫描能力 → 智能推荐 2-4 个项目；无扫描能力 → 手动输入。
+**混合设计**：有文件浏览能力 → 智能推荐 2-4 个项目；无浏览能力 → 手动输入。
 
-### Step B5：隐私确认（扫描前必问）
+### Step B5：隐私确认（浏览前必问）
 
-- A：不涉及敏感信息，正常扫描
+- A：不涉及敏感信息，正常浏览
 - B：涉及，请指定需要脱敏的文件夹路径
-- C：取消扫描，结束流程
+- C：取消浏览，结束流程
 
-### Step C：扫描 & 分析项目
+### Step C：浏览 & 分析项目
 
-AI 扫描三件事：
+AI 浏览三件事：
 - **类型**：skill / web / miniapp / system
 - **规模**：small / medium / large
 - **阶段**：planning / dev / maintenance
 
 **自动检测缺失项**：README / .git / 配置文件 / 环境说明 / 测试用例。
 
-**扫描失败兜底**：提示用户修正路径，重新扫描。
+**浏览失败兜底**：提示用户修正路径，重新浏览。
 
-### Step D：确定深度
+### Step D：深度分析
 
-- **Lite** — 只写 1-2 段总结
-- **Standard**（默认推荐）— 完整结构化内容
-- **Deep** — Standard + 架构图/数据流/安全检查附录
-- **Custom** — 用户勾选要生成的文件
+统一按 Deep 深度处理，自动生成完整结构化内容 + 架构图/数据流/安全检查附录。
 
-### Step E：自适应提问（9 道题 × 固定题型）
+### Step E：核对交接清单
 
-| # | 题型 | 主题 | 答案映射 |
-|---|------|------|---------|
-| Q1 | 单选 | 项目阶段 | 03 进度计划 |
-| Q2 | 单选 | 紧急程度 | 01 用户画像 + 09 交接检查清单 |
-| Q3 | 单选 | 技术栈 | 02 技术规格 |
-| Q4 | 多选 | 风险/阻塞 | 05 已知问题 + 04 依赖与约束 |
-| Q5 | 多选 | 外部依赖 | 04 依赖与约束 |
-| Q6 | 多选 | 前置知识 | 00 项目概况 + 09 交接检查清单 |
-| Q7 | 对错 | 是否可运行 | 07 环境配置 |
-| Q8 | 对错 | 文档完整性 | 06 核心文件索引 |
-| Q9 | 简答 | 补充说明 | 按内容分流 |
+AI 基于浏览分析结果，自动生成完整交接清单 → 用户核对 → 有遗漏自动补扫。
 
-**每题末尾选填备注（不超过 50 字）**，用于补充未涵盖的细节。
+**不考用户选择题** — 所有信息都在浏览过程中自动提取，用户只需要核对确认。
 
 ### Step F：生成记忆包
 
@@ -228,13 +208,13 @@ AI 扫描三件事：
 
 ## 核心设计原则
 
-1. **混合扫描**：有扫描能力就智能推荐，没有就手动输入
-2. **隐私前置**：扫描前必问，不裸跑
-3. **单步交互**：每次只问 1 题，输出后立即 STOP
-4. **进度可见**：每步有进度条，扫描有分步反馈
+1. **混合浏览**：有文件浏览能力就智能推荐，没有就手动输入
+2. **隐私前置**：浏览前必问，不裸跑
+3. **单步交互**：每次只确认 1 项，输出后立即 STOP
+4. **进度可见**：每步有进度条，浏览有分步反馈
 5. **半成品容忍**：缺失项自动标记，记忆包用 `[暂缺]` 标注
-6. **深度可调**：Lite/Standard/Deep/Custom，详略由用户定
-7. **反馈闭环**：每次触发自动检查 `feedback.md`，优先处理 P0
+6. **统一深度**：默认 Deep 深度分析，无需用户选择
+7. **高效闭环**：浏览→清单→核对→补扫，AI 拉清单用户核对
 8. **角色清晰**：移交AI 主导交接，接收AI 读取包，用户验收
 9. **时间戳可追溯**：所有文件带生成时间，便于多版本对比
 
@@ -245,14 +225,14 @@ AI 扫描三件事：
 1. 将 `SKILL.md` 放入 AI 平台的 Skill 目录
 2. 在对话中说出触发词（如 `IRY`、`我记得你`、`AI任务交接`）
 3. AI 自动识别后按 7 步流程执行
-4. 用户全程只需做选择题 + 选填备注
+4. 用户全程只需做确认 + 清单核对
 5. 交付包默认输出到桌面
 
 ### 平台支持
 
 | 平台 | 能力 |
 |------|------|
-| WorkBuddy | ✅ 全功能：文件扫描、写入磁盘、进度反馈 |
+| WorkBuddy | ✅ 全功能：文件浏览、写入磁盘、进度反馈 |
 | 百度搭子 | ✅ 基础功能：对话生成、文本输出 |
 | Claude Projects | ✅ 基础功能：对话生成、文本输出 |
 | GPTs | ✅ 基础功能：对话生成、文本输出 |
@@ -291,7 +271,7 @@ AI 扫描三件事：
 | 版本 | 日期 | 更新内容 |
 |------|------|---------|
 | V3.0 | 2026-06-24 | **高效重构**：删除所有选择题 → "浏览→清单→核对→补扫"闭环 / 统一确认格式（A/B/C） / 删除深度选择（统一Deep） / 新增B6阶段确认 / 跨平台兼容优化 |
-| V3.0 | 2026-06-23 | **重大重构**：7 步流程 / 隐私前置 / 扫描进度条 / 缺失项容忍 / 9 道题型化问答 / 10 文件结构 / 时间戳 |
+| V3.0 | 2026-06-23 | **重大重构**：7 步流程 / 隐私前置 / 浏览进度条 / 缺失项容忍 / 9 道题型化问答 / 10 文件结构 / 时间戳 |
 | V2.4 | 2026-06-23 | 流程重构（确认项目→选模式→执行） |
 | V2.3 | 2026-06-23 | README 结构重构：痛点前置、新增产品理念/核心能力/使用效果章节 |
 | V2.2 | 2026-06-23 | 重命名：移魂大法 → IRY (I Remember You)，增加创意说明 |
@@ -376,13 +356,13 @@ You've been working with an AI on a project for dozens of conversations. It fina
 
 If you find this project useful, **give it a Star** to show your support!
 
-> 🎁 **Star Bonus**:
+> 🎁 **Star Perks**:
 > 
-> Give it a Star ⭐ and unlock bonus materials directly in the extras folder:
-> 1. **AI Collaboration Best Practices Handbook** — 7 chapters on prompts, context management, and building efficient AI workflows
-> 2. **3 Exclusive Handover Templates** — Developer / Content Creator / Project Manager, battle-tested and ready to use
+> All bonus materials are **directly available** in the `extras/` folder — no hoops to jump through:
+> 1. **AI Collaboration Best Practices Handbook** — 7 chapters on prompting, context management, and building efficient AI workflows
+> 2. **3 Handover Templates** — Developer / Content Creator / Project Manager, battle-tested and ready to go
 > 
-> 📂 Location: `extras/` folder
+> 📂 **Where to find them**: `extras/` directory
 
 ---
 
@@ -416,28 +396,28 @@ An AI cross-session memory migration and task handover tool. Package up all the 
 |---|-------------|----------|
 | After switching AI | Explain project background, rules, preferences from scratch—30 min minimum | Import memory pack, ready to work in 30 seconds |
 | Project handover | Organize docs, write instructions, answer questions—2 hours+ | Generate handover pack in one click, recipient gets up to speed instantly |
-| Information completeness | Relies on memory, things slip through, new AI misunderstands | 10 standardized files covering everything—zero gaps |
-| Lessons learned | History is forgotten, new AI repeats mistakes | Red lines and pitfalls fully inherited—no more same mistakes |
+| Information completeness | Relies on memory, things fall through the cracks, new AI misunderstands | 10 standardized files covering everything — nothing missed |
+| Lessons learned | History gets forgotten, new AI repeats mistakes | Red lines and pitfalls fully inherited — no more repeat mistakes |
 
-**One handoff, full inheritance.** The receiving AI takes over all memory and work state for seamless continuation and zero repeated communication.
+**One handoff, full inheritance.** The receiving AI picks up all memory and work state seamlessly — zero re-explanation needed.
 
-**Half-finished projects work too.** Scan auto-detects missing items; memory pack marks them with `[暂缺]`—no fabrication, no guessing.
+**Works with incomplete projects too.** Browse auto-detects missing items; the memory pack marks them with `[TBD]` — no fabrication, no guessing.
 
 ---
 
 ## ⚙️ Core Capabilities
 
-IRY adopts a standardized **7-step handoff workflow + 9 type-formatted questions + half-finished tolerance + feedback loop** multi-check mechanism, ensuring migrated content is complete, accurate, and usable.
+IRY uses a standardized **7-step handoff workflow + Browse→Checklist→Verify→Rescan closed loop + incomplete project support + feedback iteration** multi-check system to ensure migrated content is complete, accurate, and ready to use.
 
-Migratable core information includes but is not limited to:
+What gets migrated includes but is not limited to:
 
-- **User personal profile**: Communication habits, preference style, work requirements, personal norms
-- **Project global state**: Project background, current progress, pending tasks, phase goals
-- **Technical spec**: Tech stack, core architecture, key dependencies
+- **User profile**: Communication style, preferences, work requirements, personal standards
+- **Project status**: Background, current progress, pending tasks, milestones
+- **Technical specs**: Tech stack, core architecture, key dependencies
 - **Dependencies & constraints**: Environment limits, privacy handling, compliance requirements
-- **Decision log**: Key decisions, selection rationale, historical route
-- **Historical experience**: Past collaboration experience, effective work methods, execution standards
-- **Risk taboo records**: Forbidden operations, avoidance rules, historical pitfalls, taboo boundaries
+- **Decision log**: Key decisions, rationale, historical direction
+- **Lessons learned**: Past collaboration experience, what works, execution standards
+- **Risks & red flags**: Forbidden operations, rules to follow, known pitfalls, boundaries
 
 **Deliverables**: 10 standardized files (`00-Project-Overview.md` ~ `09-Handover-Checklist.md`), covering full-context.
 
@@ -445,7 +425,7 @@ Migratable core information includes but is not limited to:
 
 ## 🎯 Core Value
 
-Completely solve information asymmetry and context fragmentation in AI cross-session handoffs. Through human-AI dual-layer quality control loops, eliminate missing, incomplete, or incorrect handoff items, allowing new AI to directly continue original work without secondary user explanation or repeated follow-up questions.
+Eliminates information gaps and context loss when handing off work between AI sessions. A human-AI dual-layer quality control system ensures nothing gets missed, skipped, or misinterpreted — the new AI picks up right where you left off, no re-explaining needed.
 
 ---
 
@@ -453,14 +433,14 @@ Completely solve information asymmetry and context fragmentation in AI cross-ses
 
 **One handoff, full inheritance.** The receiving AI takes over all memory and work state from the old session — seamless continuation, stable collaboration, zero repeated communication.
 
-**Half-finished projects work too.** Scanning auto-detects missing items; memory pack marks them with `[TBD]` — no fabrication, no guessing.
+**Works with incomplete projects too.** Browsing auto-detects missing items; the memory pack marks them with `[TBD]` — no fabrication, no guessing.
 
 ---
 
 ## 📌 Slogan
 
-- **English**: New AI remembers everything about you and your old AI
-- **Chinese**: 新 AI 记得你和老 AI 所有的事情
+- **English**: New AI. It still remembers you.
+- **Chinese**: 换新 AI，它依然记得你。
 
 ---
 
@@ -486,7 +466,7 @@ AI outputs "Start IRY?" → User replies A (Yes) / B (No).
   - C: Cancel
 - **B6**: Phase summary confirmation (final check before scanning)
 
-**Hybrid design**: With file scanning capability → smart recommend 2-4 projects; without → manual input.
+**Hybrid approach**: If file browsing is available → intelligently recommends 2-4 projects; if not → manual input.
 
 ### Step C: Browse & Analyze Project
 
