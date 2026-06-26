@@ -1,7 +1,7 @@
 ---
-name: iry-task-handover
-description: AI 跨会话记忆转移，换新 AI 不用重新解释，7步完成项目交接
-version: 3.1.0
+name: iry-task-handover-v31
+description: AI 跨会话记忆转移 v3.1，换新 AI 不用重新解释，7步完成项目交接
+version: 3.1.1
 author: 杨博
 agent_created: true
 trigger:
@@ -588,24 +588,43 @@ C. ⚠️ 其他（请在备注中说明）
 - [ ] [缺失项 2]
 ```
 
-### F.7 标准执行流程（AI 必须按此顺序操作）
+### F.7 标准执行流程（AI 必须按此顺序操作，必须实际写文件到桌面）
+
+> ⚠️ **强制规则**：本步骤必须实际调用 Write 工具写文件到桌面目录，**禁止只输出文字进度条**。用户看不到文件就等于没完成。
 
 ```
-1. mkdir -p "{桌面路径}/{项目名}-IRY交接包-{时间戳}"（如 `C:\Users\User\Desktop\IRY-交接包-20260625-2053`）
-2. Write → 00-项目概况.md
-3. Write → 01-用户画像.md
-4. Write → 02-技术规格.md
-5. Write → 03-进度计划.md
-6. Write → 04-依赖与约束.md
-7. Write → 05-已知问题.md
-8. Write → 06-核心文件索引.md
-9. Write → 07-环境配置.md
-10. Write → 08-决策记录.md
-11. Write → 09-交接检查清单.md
-12. find 或 ls 验证 10 个文件全部存在
+1. 确定输出目录：C:\Users\{用户名}\Desktop\{项目名}-IRY交接包-{时间戳}
+   例：C:\Users\User\Desktop\IRY-交接包-20260626-1750
+   用 Bash 执行：mkdir -p "C:\Users\User\Desktop\IRY-交接包-{时间戳}"
+
+2. Write → "C:\Users\User\Desktop\IRY-交接包-{时间戳}\00-项目概况.md"
+
+3. Write → "C:\Users\User\Desktop\IRY-交接包-{时间戳}\01-用户画像.md"
+
+4. Write → "C:\Users\User\Desktop\IRY-交接包-{时间戳}\02-技术规格.md"
+
+5. Write → "C:\Users\User\Desktop\IRY-交接包-{时间戳}\03-进度计划.md"
+
+6. Write → "C:\Users\User\Desktop\IRY-交接包-{时间戳}\04-依赖与约束.md"
+
+7. Write → "C:\Users\User\Desktop\IRY-交接包-{时间戳}\05-已知问题.md"
+
+8. Write → "C:\Users\User\Desktop\IRY-交接包-{时间戳}\06-核心文件索引.md"
+
+9. Write → "C:\Users\User\Desktop\IRY-交接包-{时间戳}\07-环境配置.md"
+
+10. Write → "C:\Users\User\Desktop\IRY-交接包-{时间戳}\08-决策记录.md"
+
+11. Write → "C:\Users\User\Desktop\IRY-交接包-{时间戳}\09-交接检查清单.md"
+
+12. Bash 验证：ls "C:\Users\User\Desktop\IRY-交接包-{时间戳}" → 确认10个文件全部存在
+
 13. present_files 一次性展示 10 个文件给用户
+
 14. 进入 Step G
 ```
+
+**⏸️ 写文件过程中不停止。10 个文件全部写完 + 验证存在后，再输出进度反馈。**
 
 ### F.8 进度反馈
 
@@ -614,11 +633,11 @@ C. ⚠️ 其他（请在备注中说明）
 📄 文件 3/10：03-进度计划.md 已写入 ✅
 ```
 
-### F.9 落地方式（按平台能力自动适配）
+### F.9 落地方式
 
 | 平台 | 落地方式 |
 |------|---------|
-| 有文件系统能力（WorkBuddy / Claude Code / GPTs with Code） | 用 Write 工具保存到桌面 + present_files 展示 |
+| 有文件系统能力（WorkBuddy / Claude Code / GPTs with Code） | **必须**用 Write 工具写 10 个文件到桌面 + present_files 展示。**禁止只输出文字。** |
 | 无文件系统能力（百度搭子等纯对话平台） | 在对话中输出 10 个文件完整内容，用户手动复制保存到桌面 |
 
 **⏸️ 10 个文件全部生成 + 验证存在后，输出交付确认 → STOP → 等用户确认**
@@ -761,18 +780,26 @@ IRY = **I Remember You**（我记得你）
 
 # 📋 版本信息
 
-- **当前版本**: V3.1
+- **当前版本**: V3.1.1
 - **品牌**: IRY (I Remember You)
 - **原名称**: 移魂大法（已废弃）
 - **GitHub**: https://github.com/firecangshu/IRY-skill
 
-### V3.1 更新内容（2026-06-26）
+### V3.1.1 修复（2026-06-26）
+
+- **修复 F.7 写文件失效**：Step F 增加强制 Write 工具调用指令，禁止仅输出文字进度条；路径改为真实桌面路径 + 时间戳；F.9 落地方式增加"必须写文件"声明
+- **同步修复 SKILL.en.md**：英文版 F.7 / F.8 同步更新
+- **修复 F.7 路径占位符问题**：`{桌面路径}` 改为真实路径示例
+- **版本号升级**：V3.1.0 → V3.1.1
+
+### V3.1.0 更新内容（2026-06-26）
 
 - **修复 P0 安全漏洞**：删除 B1/B2（授权前浏览文件），Step B 统一为手动输入
 - **修复 Step D**：补充输出模板 + 矛盾指令（B3 返回 vs 继续）
 - **修复 B5 描述**：拒绝选项"立即终止" → "将弹出终止确认"（与实际行为一致）
 - **修复 C0 引用错误**：A/B/C → A/B
 - **修复 F.7 硬编码路径**：Windows 桌面路径改为动态模板
+- **修复 F.7 实际写文件问题**：增加强制 Write 工具指令 + 真实路径示例，禁止仅输出文字进度条
 - **补充 C1 标题**：浏览进度输出补 `### C1.` 标题
 - **版本号升级**：V3.0 → V3.1.0
 

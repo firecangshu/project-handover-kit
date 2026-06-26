@@ -575,24 +575,43 @@ Please verify (handover party / user):
 - [ ] [Missing item 2]
 ```
 
-### F.7 Standard Execution Flow (AI must follow this exact order)
+### F.7 Standard Execution Flow (AI must follow this exact order, MUST write files to disk)
+
+> ⚠️ **Mandatory rule**: This step MUST call Write tool to write 10 files to desktop. Outputting text progress only without actual files is considered incomplete.
 
 ```
-1. mkdir -p "C:\Users\User\Desktop\IRY-Handover"
-2. Write → 00-Project-Overview.md
-3. Write → 01-User-Profile.md
-4. Write → 02-Tech-Specs.md
-5. Write → 03-Progress-Plan.md
-6. Write → 04-Dependencies-Constraints.md
-7. Write → 05-Known-Issues.md
-8. Write → 06-Core-File-Index.md
-9. Write → 07-Environment-Setup.md
-10. Write → 08-Decision-Log.md
-11. Write → 09-Handover-Checklist.md
-12. find or ls to verify all 10 files exist
+1. Determine output dir: C:\Users\{username}\Desktop\{project-name}-IRY-Handover-{timestamp}
+   e.g. C:\Users\User\Desktop\IRY-Handover-20260626-1750
+   Bash: mkdir -p "C:\Users\User\Desktop\IRY-Handover-{timestamp}"
+
+2. Write → "C:\Users\User\Desktop\IRY-Handover-{timestamp}\00-Project-Overview.md"
+
+3. Write → "C:\Users\User\Desktop\IRY-Handover-{timestamp}\01-User-Profile.md"
+
+4. Write → "C:\Users\User\Desktop\IRY-Handover-{timestamp}\02-Tech-Specs.md"
+
+5. Write → "C:\Users\User\Desktop\IRY-Handover-{timestamp}\03-Progress-Plan.md"
+
+6. Write → "C:\Users\User\Desktop\IRY-Handover-{timestamp}\04-Dependencies-Constraints.md"
+
+7. Write → "C:\Users\User\Desktop\IRY-Handover-{timestamp}\05-Known-Issues.md"
+
+8. Write → "C:\Users\User\Desktop\IRY-Handover-{timestamp}\06-Core-File-Index.md"
+
+9. Write → "C:\Users\User\Desktop\IRY-Handover-{timestamp}\07-Environment-Setup.md"
+
+10. Write → "C:\Users\User\Desktop\IRY-Handover-{timestamp}\08-Decision-Log.md"
+
+11. Write → "C:\Users\User\Desktop\IRY-Handover-{timestamp}\09-Handover-Checklist.md"
+
+12. Bash verify: ls "C:\Users\User\Desktop\IRY-Handover-{timestamp}" → confirm all 10 files exist
+
 13. present_files to display all 10 files to the user
+
 14. Enter Step G
 ```
+
+**⏸️ Do NOT stop during file writing. Only stop after all 10 files are written AND verified.**
 
 ### F.8 Progress Feedback
 
@@ -601,11 +620,11 @@ Output progress every 2-3 files generated:
 📄 File 3/10: 03 Progress-Plan.md completed
 ```
 
-### F.8 Delivery Method (auto-adapts based on platform capability)
+### F.9 Delivery Method
 
 | Platform | Delivery Method |
 |----------|----------------|
-| With file system capability (WorkBuddy) | Save directly to desktop |
+| With file system capability (WorkBuddy) | **MUST** use Write tool to save 10 files to desktop + present_files. **Outputting text only is NOT allowed.** |
 | Without file system capability (pure chat platforms) | Output full content of 10 files in conversation, user manually copies and saves to desktop |
 
 **⏸️ After all 10 files are generated, output delivery confirmation → STOP → Wait for user confirmation**
