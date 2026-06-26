@@ -1,5 +1,5 @@
 ---
-name: iry-task-handover
+name: iry
 description: AI Memory Transfer & Task Handover Skill. Seamlessly transfer AI context (user profile, project status, experience, pitfalls) to a new AI through human-AI collaboration and quality checks, ensuring the receiving AI can pick up work immediately without asking questions.
 ---
 
@@ -8,7 +8,8 @@ description: AI Memory Transfer & Task Handover Skill. Seamlessly transfer AI co
 > **⚠️ File Read Authorization Rule (Mandatory · Privacy Request)**:
 > - Reading local files **is a privacy request**. A confirmation prompt must pop up listing the file/folder paths to be read; reading can only proceed after explicit user consent.
 > - Before user confirmation, **forbidden** to call any file reading tool (Read / Glob / Grep / cat/ls in Bash, etc.).
-> - **User declines → show a final warning first** (⚠️ "If you decline authorization now, the handover pack cannot be generated properly. Confirm termination?"), and **only terminate after the user confirms termination a second time** (A). If the user selects B (go back), return to the authorization prompt. This Skill depends on file reading to generate the handover pack; without authorization it cannot complete, and **downgrading to manual input is not allowed**.
+> - **User declines → task terminates immediately**. This Skill depends on file reading to generate the handover pack; without authorization it cannot complete, and **downgrading to manual input is not allowed**.
+> - After declining, output a termination notice; the user must re-trigger the Skill to restart.
 >
 > **Exception**: In Step F "Generate Memory Pack", the `Write` tool may be called to create 10 Markdown deliverable files on the Desktop (this is the Skill's core deliverable, no extra confirmation needed).
 
@@ -272,7 +273,7 @@ Confirm to read?
 A. ✅ Confirm, start reading
 B. ❌ Cancel (I do not authorize reading)
 
-⏸️ Please choose (A/B).
+⏸️ Please choose (A/B/C).
 ```
 
 **⏸️ Stop after output. AI may only call Read / Glob / Grep tools after user selects A.**
@@ -390,7 +391,7 @@ C. ⚠️ Other (please note in comments)
 > No need for user to select depth, AI directly performs full **Deep** analysis:
 > - Complete reading of project structure and key files
 > - Extract tech stack, dependencies, critical paths
-> - Map out TODO / FIXME / known bugs
+> -梳理 TODO / FIXME / known bugs
 > - Summarize current progress and next steps
 > - Output complete summary that new AI can use to pick up work
 
@@ -438,9 +439,9 @@ C. ⚠️ Other (please note in comments)
 ### E2. Rescan Process After User Selects B
 
 ```
-✅ Received your补充 information: [User's description]
+✅ Received your补充: [User's description]
 
-Re-scanning the project based on the补充 requirements...
+Re-scanning project based on补充 requirements...
 [Rescan progress]
 
 Here is the updated checklist summary:
@@ -463,13 +464,6 @@ C. ⚠️ Other (please note in comments)
 
 **Progress**: Step 6/7, Current: Step F - Generating memory pack...
 
-### ⚠️ Critical Iron Rule (Violation = Task Failure)
-
-> **AI MUST use the `Write` tool to actually write files. Text progress output alone is strictly forbidden.**
-> "Progress bar" ≠ "real write". Each file must be created by one `Write` tool call.
-> **After all 10 files are written, use `ls` or `find` to verify they actually exist**, then enter Step G.
-> If only text is output without real files, **this is judged as failure** and Step F must be re-executed.
-
 ### F.0 Delivery Pack Structure
 
 **Default output path = Desktop**
@@ -479,10 +473,6 @@ Directory name format: `{ProjectName}-IRY-Handover-{Timestamp}`
 **Default output location** (auto-adapts based on platform capability):
 - With file system capability (e.g., WorkBuddy): Save to desktop
 - Without file system capability (e.g., other chat platforms): Show full content in conversation
-
-**Directory creation**:
-- AI must first use the `mkdir -p` tool to create the directory
-- Then use the `Write` tool to write files one by one
 
 ### F.1 10 Standard Files
 
@@ -575,26 +565,7 @@ Please verify (handover party / user):
 - [ ] [Missing item 2]
 ```
 
-### F.7 Standard Execution Flow (AI must follow this exact order)
-
-```
-1. mkdir -p "C:\Users\User\Desktop\IRY-Handover"
-2. Write → 00-Project-Overview.md
-3. Write → 01-User-Profile.md
-4. Write → 02-Tech-Specs.md
-5. Write → 03-Progress-Plan.md
-6. Write → 04-Dependencies-Constraints.md
-7. Write → 05-Known-Issues.md
-8. Write → 06-Core-File-Index.md
-9. Write → 07-Environment-Setup.md
-10. Write → 08-Decision-Log.md
-11. Write → 09-Handover-Checklist.md
-12. find or ls to verify all 10 files exist
-13. present_files to display all 10 files to the user
-14. Enter Step G
-```
-
-### F.8 Progress Feedback
+### F.7 Progress Feedback
 
 Output progress every 2-3 files generated:
 ```
@@ -761,7 +732,7 @@ For complete usage instructions, SOP process, Q&A templates, please check the Gi
 - Added browse failure fallback mechanism
 - Added incomplete project handling (auto-mark missing items + [TBD] annotation)
 - Added 8 → 10 file structure (added 08 Decision-Log.md + redesigned 09 Handover-Checklist.md)
-- **Removed all quiz questions** → "Browse → Checklist → Verify → Rescan" closed loop (no questions, no exams)
+- Standardized Q&A环节: 9 questions × fixed question types
 - Added optional notes for each question
 - Changed depth difference to "different detail levels" instead of "different file counts"
 - Custom mode: user selects which files to generate

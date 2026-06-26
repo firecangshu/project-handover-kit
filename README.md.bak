@@ -168,16 +168,11 @@ AI 输出「是否启动 IRY？」→ 用户回复 A/B。
 
 **混合设计**：有文件浏览能力 → 智能推荐 2-4 个项目；无浏览能力 → 手动输入。
 
-### Step B5：文件读取授权确认（浏览前必问，强制跳窗）
+### Step B5：隐私确认（浏览前必问）
 
-- A：✅ 授权读取（同意读取上述路径的文件，继续流程）
-- B：❌ 拒绝读取 → 先弹警告「项目将无法顺利生成交接包，确认是否终止？」→ 二次确认才终止
-- C：⚠️ 部分授权（请指定允许读取 / 禁止读取的路径）
-
-### Step C0：读取操作二次确认（每次实际读取前必问）
-
-- A：✅ 确认，开始读取
-- B：❌ 取消（拒绝读取授权）→ 同样先弹警告，二次确认才终止
+- A：不涉及敏感信息，正常浏览
+- B：涉及，请指定需要脱敏的文件夹路径
+- C：取消浏览，结束流程
 
 ### Step C：浏览 & 分析项目
 
@@ -585,7 +580,7 @@ Unified **Deep** mode — no depth selection. AI performs full deep analysis:
 | Version | Date | Changes |
 |---------|------|---------|
 | V3.0 | 2026-06-24 | **Efficiency refactor**: Removed all quiz questions → "Browse→Checklist→Verify→Rescan" closed loop / Unified confirmation format (A/B/C) / Removed depth selection (unified Deep) / Added B6 stage confirmation / Cross-platform compatibility optimization |
-| V3.0 | 2026-06-23 | **Major refactor**: 7-step workflow / privacy-first / scan progress bar / half-finished tolerance / Browse→Checklist→Verify→Rescan closed loop / 10-file structure / timestamps |
+| V3.0 | 2026-06-23 | **Major refactor**: 7-step workflow / privacy-first / scan progress bar / half-finished tolerance / 9 type-formatted questions / 10-file structure / timestamps |
 | V2.4 | 2026-06-23 | Flow refactor (confirm project → choose mode → execute) |
 | V2.3 | 2026-06-23 | README restructure: pain points first, added product philosophy/core capabilities/usage effect sections |
 | V2.2 | 2026-06-23 | Rebranded: 移魂大法 → IRY (I Remember You), added creative story |
